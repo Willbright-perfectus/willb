@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Document</title>
+	<!-- My css framework -->
+	<link rel="stylesheet" href="https://unpkg.com/linearicons@1.0.2/dist/web-font/style.css">
+	<link rel="stylesheet" type="text/css" href="style.css" media="screen" />
+</head>
+
+<body>
+	<div id="container">
+		<h1>BILLY'S SLOT Calculator</h1> 
+		<h2>Enter valid data only for best outcomes </h2>
+		<div id="inputs">
+			<input type="number" class="input" id="inp1" placeholder="Amount ($)" step="0.5">
+			<br>
+			<input type="number" class="input" id="inp2" placeholder="Risk percentage" step="0.5">
+			<br>
+		   <input type="number" class="input" id="inp3" placeholder="entry point" step="0.0005">
+		   <br>
+		  <input type="number" class="input" id="inp4" placeholder="Stop Loss point" step="0.0005">
+		  <br>
+			<div class="btn" id="btn" onclick="SLOT()">Calculate</div>
+			<h2 id="style"></h2>
+		</div>
+
+	</div>
+	<script>
+		function SLOT() {
+		 if (inp1.value != "" && inp2.value != "") {   
+	   if (inp3.value != "" && inp4.value != "") {
+			let inp1 = Number(document.getElementById("inp1").value)
+			let inp2 = Number(document.getElementById("inp2").value)
+			let style = document.getElementById('style')
+		   let inp3 = Number(document.getElementById("inp3").value)
+			let inp4 = Number(document.getElementById("inp4").value)
+			let m = inp2 / 100
+			let n = inp1 * m 
+			let o = (inp3 - inp4)*10000
+			let calc = n / o
+			let w = n
+			
+			style.innerHTML = "Your slot should be " + calc.toFixed(2) + "<br> If you lose this trade the loss will be aproximately " + w + "$"
+		 
+		 } 
+		 }
+		 else {
+			 alert("You must write in all inputs, they are required!")
+		 }
+		}
+	</script>
+</body>
+
+</html>
